@@ -1,12 +1,12 @@
 exports.config = {
-  user: process.env.BROWSERSTACK_USERNAME || 'vferreirap_GyQMjg',
-  key: process.env.BROWSERSTACK_ACCESS_KEY || 'kfsqzgxbcj1rcpbiMLyu',
+  user: process.env.BROWSERSTACK_USERNAME || 'vferreirap_9iJfD4',
+  key: process.env.BROWSERSTACK_ACCESS_KEY || '3z1ef9XQk5qLrtGmKLRV',
   hostname: 'hub.browserstack.com',
   services: [
     [
       'browserstack',
       {
-        app: 'bs://6982f3610a5abc06b3ad57608441152accf1fcad',
+        app: 'bs://4ba9106edeab22639228de19c87dfde48ef26129',
         buildIdentifier: "${BUILD_NUMBER}",
         browserstackLocal: true
       },
