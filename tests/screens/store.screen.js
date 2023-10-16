@@ -115,6 +115,19 @@ class StoreScreen {
         }
     }
 
+    async #clickCartIcon() {
+        try {
+            let cartIconLocator = await driver.$("//XCUIElementTypeButton[@name=\"1\"]");
+            cartIconLocator.waitForEnabled({ timeout: this.#waitTime })
+            await cartIconLocator.click();
+        } catch (error) {
+            console.error('Click cart icon error:', error);
+            throw error;
+        } finally {
+            console.log('Click cart icon')
+        }
+    }
+
     async searchProducts(product) {
         await this.#clickSearchIcon()
         await this.#searchProduct(product)
@@ -129,6 +142,16 @@ class StoreScreen {
         await this.#addToChart()
     }
 
+    async checkout() {
+        await this.#clickCartIcon()
+    }
+
+    async assertPrice(price) {
+        let _price = "~RS " + price
+        let priceLocator = await driver.$(_price);
+        priceLocator.waitForEnabled({ timeout: this.#waitTime })
+        await priceLocator.toBeDisplayed();
+    }
 }
 
 module.exports = new StoreScreen()

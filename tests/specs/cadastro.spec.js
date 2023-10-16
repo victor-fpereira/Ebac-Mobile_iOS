@@ -4,7 +4,8 @@ describe('Carrinho de compras', () => {
 
     it('Deve adicionar um produto ao carrinho com sucesso', async () => {
         await productViewScreen.searchProducts("Josie Yoga Jacket")
-        await productViewScreen.addToChart("M", "Gray")
-
+        await productViewScreen.addToChart("M", "Blue")
+        await productViewScreen.checkout()
+        await productViewScreen.assertPrice("56.25")
     });
 });
